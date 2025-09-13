@@ -13,21 +13,21 @@ vector<int> findAllIndices(int arr[], int size, int key) {
 }
 
 int main() {
-    // Test case 1: Multiple occurrences
+    // test 1
     int arr1[] = {3, 1, 3, 5, 3};
     vector<int> result1 = findAllIndices(arr1, 5, 3);
     cout << "Multiple occurrences - Indices: ";
     for (int i : result1) cout << i << " ";
     cout << endl;
     
-    // Test case 2: Key not present
+    // test 2
     int arr2[] = {1, 2, 4, 5};
     vector<int> result2 = findAllIndices(arr2, 4, 9);
     cout << "Key not present - Indices: ";
     for (int i : result2) cout << i << " ";
     cout << "(empty)" << endl;
     
-    // Test case 3: Empty array
+    // test 3
     int arr3[] = {};
     vector<int> result3 = findAllIndices(arr3, 0, 5);
     cout << "Empty array - Indices: ";
