@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+// node class represents a single element in the linked list
 class Node {
 private:
     int data;
@@ -25,6 +26,7 @@ public:
     }
 };
 
+// inserts a new node with the given value into the linked list
 Node* insert(Node* head, int value) {
     if (head == nullptr) {
         return new Node(value);
@@ -33,6 +35,7 @@ Node* insert(Node* head, int value) {
     return head;
 }
 
+// displays the linked list elements
 void display(Node* head) {
     if (head == nullptr) {
         return;
