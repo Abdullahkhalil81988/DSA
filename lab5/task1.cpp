@@ -230,30 +230,60 @@ public:
     }
 };
 
-int main()
-{
+int main() {
     Bst bst;
+    int choice, value;
 
-    bst.insert(3);
-    bst.insert(1);
-    bst.insert(2);
-    bst.insert(4);
-    bst.insert(16);
-    bst.insert(17);
-    bst.insert(10);
-    bst.insert(5);
+    do {
+        cout << "\n=== Binary Search Tree Menu ===\n";
+        cout << "1. Insert a value\n";
+        cout << "2. Delete a value\n";
+        cout << "3. Print tree structure\n";
+        cout << "4. In-order traversal\n";
+        cout << "5. Pre-order traversal\n";
+        cout << "6. Post-order traversal\n";
+        cout << "0. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
 
-    bst.printTreeWrapper();
-
-    bst.inOrderTraversal();
-    bst.preOrderTraversal();
-    bst.postOrderTraversal();
-    bst.deleteValue(5);
-    bst.printTreeWrapper();
-    bst.deleteValue(16);
-    bst.printTreeWrapper();
-    bst.deleteValue(2);
-    bst.printTreeWrapper();
+        switch (choice) {
+            case 1:
+                cout << "Enter value to insert: ";
+                cin >> value;
+                bst.insert(value);
+                break;
+                
+            case 2:
+                cout << "Enter value to delete: ";
+                cin >> value;
+                bst.deleteValue(value);
+                break;
+                
+            case 3:
+                cout << "\nTree Structure:\n";
+                bst.printTreeWrapper();
+                break;
+                
+            case 4:
+                bst.inOrderTraversal();
+                break;
+                
+            case 5:
+                bst.preOrderTraversal();
+                break;
+                
+            case 6:
+                bst.postOrderTraversal();
+                break;
+                
+            case 0:
+                cout << "Exiting program...\n";
+                break;
+                
+            default:
+                cout << "Invalid choice! Please try again.\n";
+        }
+    } while (choice != 0);
 
     return 0;
 }
