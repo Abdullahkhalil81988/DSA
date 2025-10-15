@@ -5,6 +5,7 @@
 #include <vector>
 using namespace std;
 
+// loads maze from csv file
 bool Maze::loadFromFile(const string& filename) {
     ifstream file(filename);
     if (!file.is_open()) {
@@ -15,13 +16,15 @@ bool Maze::loadFromFile(const string& filename) {
     string line;
     grid.clear();
     int row = 0;
-
+    
+    // read maze data line by line
     while (getline(file, line)) {
         vector<char> rowData;
         stringstream ss(line);
         string cell;
         int col = 0;
 
+        // process each cell from the csv
         while (getline(ss, cell, ',')) {
             char ch = cell.empty() ? ' ' : cell[0];
             rowData.push_back(ch);
@@ -38,6 +41,7 @@ bool Maze::loadFromFile(const string& filename) {
     return true;
 }
 
+// display the maze in the console
 void Maze::printMaze() const {
     for (const auto& row : grid) {
         for (char c : row) cout << c << ' ';

@@ -4,13 +4,14 @@
 #include <string>
 using namespace std;
 
-
+//  main program to solve a maze 
 int main() {
     string filename;
     cout << "Enter maze CSV filename: ";
     cin >> filename;
 
     Maze maze;
+    // load the maze from file 
     if (!maze.loadFromFile(filename)) {
         cerr << "Failed to load maze.\n";
         return 1;
@@ -20,9 +21,11 @@ int main() {
     maze.printMaze();
 
     Solver solver;
+    // find path through the maze 
     bool solved = solver.solve(maze);
 
     if (solved) {
+        //` display solution with path marked 
         cout << "\nSolved Maze:\n";
         maze.printMaze();
         cout << "\nParent array written to parent_array_output.csv\n";
